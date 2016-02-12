@@ -9,7 +9,7 @@ class MarkupCalculator
 
     GOODS_MARKUPS = {
         0 => 0.13,
-        1 => 0.75,
+        1 => 0.075,
         2 => 0,
         3 => 0.02,
         4 => 0
@@ -22,6 +22,8 @@ class MarkupCalculator
 
     def calculate(base_price, num_people, goods)
         raise RuntimeError, "Invalid input" unless is_valid(base_price, num_people, goods)
+        marked_up_baseprice = base_price + base_price*FLAT_MARKUP
+        (marked_up_baseprice + marked_up_baseprice*PER_PERSON_MARKUP*num_people + marked_up_baseprice*GOODS_MARKUPS[goods]).round(2)
     end
 
     private def is_valid(base_price, num_people, goods)
