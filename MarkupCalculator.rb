@@ -7,6 +7,19 @@ class MarkupCalculator
         :clothing => 4
     }
 
+    GOODS_MARKUPS = {
+        0 => 0.13,
+        1 => 0.75,
+        2 => 0,
+        3 => 0.02,
+        4 => 0
+    }
+
+    FLAT_MARKUP = 0.05
+    PER_PERSON_MARKUP = 0.012
+
+    private_constant :GOODS_MARKUPS, :FLAT_MARKUP, :PER_PERSON_MARKUP
+
     def calculate(base_price, num_people, goods)
         raise RuntimeError, "Invalid input" unless is_valid(base_price, num_people, goods)
     end
