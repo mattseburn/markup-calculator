@@ -20,7 +20,10 @@ class TestMarkupCalculator < MiniTest::Test
 
     def test_invalid_input
         assert_raises(RuntimeError) { @calculator.calculate(1225.45, 0, MarkupCalculator::GOODS[:food]) }
+        assert_raises(RuntimeError) { @calculator.calculate(1225.45, -7, MarkupCalculator::GOODS[:books]) }
         assert_raises(RuntimeError) { @calculator.calculate(5274.56, 1, "clothing") }
+        assert_raises(RuntimeError) { @calculator.calculate(-4564.40, 1, MarkupCalculator::GOODS[:drugs]) }
+        assert_raises(RuntimeError) { @calculator.calculate("Not a number", 5, MarkupCalculator::GOODS[:electronics]) }
     end
 
     def test_valid_input_with_materials_markup
