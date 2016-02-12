@@ -7,8 +7,8 @@ class TestMarkupCalculator < MiniTest::Test
     end
 
     def test_examples
-        assert_equal 1591.58, @calculator.calculate(1299.99, 3, "food")
-        assert_equal 6199.81, @calculator.calculate(5432.00, 1, "drugs")
-        assert_equal 13707.63, @calculator.calculate(12456.95, 4, "books")
+        assert_equal 1591.58, @calculator.calculate(1299.99, 3, MarkupCalculator::GOODS[:food])
+        assert_equal 6199.81, @calculator.calculate(5432.00, 1, MarkupCalculator::GOODS[:drugs])
+        assert_equal 13707.63, @calculator.calculate(12456.95, 4, MarkupCalculator::GOODS[:books])
     end
 end
